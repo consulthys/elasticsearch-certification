@@ -1,7 +1,7 @@
 # Installation and Configuration
  * [Deploy and start an Elasticsearch cluster that satisfies a given set of requirements](https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html)
  * [Configure the nodes of a cluster to satisfy a given set of requirements](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html)
- * [Secure an Elasticsearch cluster using X-Pack Security](https://www.elastic.co/guide/en/elastic-stack-overview/current/xpack-security.html)
+ * [Secure an Elasticsearch cluster using X-Pack Security](https://www.elastic.co/guide/en/elastic-stack-overview/current/xpack-security.html) +[here](https://www.elastic.co/guide/en/elasticsearch/reference/current/configuring-security.html)
  * [Define role-based access control using X-Pack Security](https://www.elastic.co/guide/en/elastic-stack-overview/current/authorization.html#roles)
 
 # Indexing Data
