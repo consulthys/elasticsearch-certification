@@ -11,7 +11,7 @@
    * start Kibana `./bin/kibana`
    * [create user](https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-users.html)
    * [create/assign roles](https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-roles.html)
- * [Define role-based access control using X-Pack Security](https://www.elastic.co/guide/en/elastic-stack-overview/current/authorization.html#roles)
+ * [Define role-based access control using X-Pack Security](https://www.elastic.co/guide/en/elastic-stack-overview/current/authorization.html#roles) (+[here](https://www.elastic.co/guide/en/elastic-stack-overview/current/mapping-roles.html))
 
 # Indexing Data
  * [Define an index that satisfies a given set of requirements](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-create-index.html)
