@@ -4,12 +4,13 @@
  * [Secure an Elasticsearch cluster using X-Pack Security](https://www.elastic.co/guide/en/elastic-stack-overview/current/xpack-security.html) +[here](https://www.elastic.co/guide/en/elasticsearch/reference/current/configuring-security.html)
    * select trial license
    * set `xpack.security.enabled: true` in `elasticsearch.yml`
+   * [Configure TLS](https://www.elastic.co/guide/en/elastic-stack-overview/current/ssl-tls.html)
    * start ES `./bin/elasticsearch`
    * define passwords `./bin/elasticsearch-setup-passwords interactive`
    * configure Kibana `elasticsearch.username: "kibana"` + `elasticsearch.password: "your_password"`
    * start Kibana `./bin/kibana`
-   * [create user](https://www.elastic.co/guide/en/elasticsearch/reference/6.3/security-api-users.html)
-   * [create/assign roles](https://www.elastic.co/guide/en/elasticsearch/reference/6.3/security-api-roles.html)
+   * [create user](https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-users.html)
+   * [create/assign roles](https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-roles.html)
  * [Define role-based access control using X-Pack Security](https://www.elastic.co/guide/en/elastic-stack-overview/current/authorization.html#roles)
 
 # Indexing Data
