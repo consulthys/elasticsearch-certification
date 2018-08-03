@@ -37,7 +37,12 @@
    * `index.blocks.read_only`, `index.blocks.read_only_allow_delete`
    * `cluster.blocks.read_only`, `cluster.blocks.read_only_allow_delete`
    * [more settings...](https://github.com/elastic/elasticsearch/blob/master/server/src/main/java/org/elasticsearch/index/IndexSettings.java)
- * Perform [index](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html), [create](), [read](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-get.html), [update](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-update.html), and [delete](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-delete.html) operations on the documents of an index
+ * Perform [index](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html), [create](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html#operation-type), [read](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-get.html), [update](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-update.html), and [delete](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-delete.html) operations on the documents of an index
+   * index: `PUT index/_doc/id`, `POST index/_doc`,
+   * create: `PUT index/_doc/id?op_type=create`, `PUT index/_doc/id/_create`
+   * read: `GET/HEAD index/_doc/id`, `GET/HEAD index/_doc/id/_source`
+   * update: `POST index/_doc/id/_update` with `doc`, `doc_as_upsert`, `script`, `detect_noop`, `upsert`, `scripted_upsert`, `doc_as_upsert`
+   * delete: `DELETE index/_doc/id`, `POST index/_delete_by_query`
  * [Define and use index aliases](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-aliases.html)
    * `POST _aliases`, `PUT/DELETE/GET/HEAD index_name/_alias/alias_name`, `GET/HEAD _alias`
    * actions: `add`, `remove`, `remove_index`
