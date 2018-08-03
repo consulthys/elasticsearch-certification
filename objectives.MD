@@ -41,13 +41,15 @@
    * index: `PUT index/_doc/id`, `POST index/_doc`,
    * create: `PUT index/_doc/id?op_type=create`, `PUT index/_doc/id/_create`
    * read: `GET/HEAD index/_doc/id`, `GET/HEAD index/_doc/id/_source`
-   * update: `POST index/_doc/id/_update` with `doc`, `doc_as_upsert`, `script`, `detect_noop`, `upsert`, `scripted_upsert`, `doc_as_upsert`, `POST index/_update_by_query
+   * update: `POST index/_doc/id/_update` with `doc`, `doc_as_upsert`, `script`, `detect_noop`, `upsert`, `scripted_upsert`, `doc_as_upsert`, `POST index/_update_by_query`
    * delete: `DELETE index/_doc/id`, `POST index/_delete_by_query`
  * [Define and use index aliases](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-aliases.html)
    * `POST _aliases`, `PUT/DELETE/GET/HEAD index_name/_alias/alias_name`, `GET/HEAD _alias`
    * actions: `add`, `remove`, `remove_index`
    * properties: `index`, `indices`, `alias`, `filter`, `routing`, `index_routing`, `search_routing`
  * [Define and use an index template for a given pattern that satisfies a given set of requirements](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-templates.html)
+   * `PUT/GET/DELETE/HEAD _template/name`
+   * `index_patterns`, `aliases`, `settings`, `mappings`, `order`, `version
  * [Define and use a dynamic template that satisfies a given set of requirements](https://www.elastic.co/guide/en/elasticsearch/reference/current/dynamic-templates.html)
  * Use the [Reindex API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html) and [Update By Query API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-update-by-query.html) to reindex and/or update documents
  * [Define and use an ingest pipeline that satisfies a given set of requirements, including the use of Painless to modify documents](https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html)
