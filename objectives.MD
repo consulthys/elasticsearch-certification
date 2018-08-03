@@ -41,7 +41,7 @@
    * index: `PUT index/_doc/id`, `POST index/_doc`,
    * create: `PUT index/_doc/id?op_type=create`, `PUT index/_doc/id/_create`
    * read: `GET/HEAD index/_doc/id`, `GET/HEAD index/_doc/id/_source`
-   * update: `POST index/_doc/id/_update` with `doc`, `doc_as_upsert`, `script`, `detect_noop`, `upsert`, `scripted_upsert`, `doc_as_upsert`
+   * update: `POST index/_doc/id/_update` with `doc`, `doc_as_upsert`, `script`, `detect_noop`, `upsert`, `scripted_upsert`, `doc_as_upsert`, `POST index/_update_by_query
    * delete: `DELETE index/_doc/id`, `POST index/_delete_by_query`
  * [Define and use index aliases](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-aliases.html)
    * `POST _aliases`, `PUT/DELETE/GET/HEAD index_name/_alias/alias_name`, `GET/HEAD _alias`
