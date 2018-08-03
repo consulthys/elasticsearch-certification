@@ -39,6 +39,9 @@
    * [more settings...](https://github.com/elastic/elasticsearch/blob/master/server/src/main/java/org/elasticsearch/index/IndexSettings.java)
  * Perform [index](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html), [create](), [read](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-get.html), [update](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-update.html), and [delete](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-delete.html) operations on the documents of an index
  * [Define and use index aliases](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-aliases.html)
+   * `POST _aliases`, `PUT/DELETE/GET/HEAD index_name/_alias/alias_name`, `GET/HEAD _alias`
+   * actions: `add`, `remove`, `remove_index`
+   * properties: `index`, `indices`, `alias`, `filter`, `routing`, `index_routing`, `search_routing`
  * [Define and use an index template for a given pattern that satisfies a given set of requirements](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-templates.html)
  * [Define and use a dynamic template that satisfies a given set of requirements](https://www.elastic.co/guide/en/elasticsearch/reference/current/dynamic-templates.html)
  * Use the [Reindex API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html) and [Update By Query API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-update-by-query.html) to reindex and/or update documents
