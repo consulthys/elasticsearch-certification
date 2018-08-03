@@ -59,13 +59,21 @@
 # Queries
  * Write and execute a search query for [terms](https://www.elastic.co/guide/en/elasticsearch/reference/current/term-level-queries.html) and/or [phrases](https://www.elastic.co/guide/en/elasticsearch/reference/current/full-text-queries.html) in one or more fields of an index
  * [Write and execute a search query that is a Boolean combination of multiple queries and filters](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-bool-query.html)
+   * `bool` + `must/must_not/filter/should` with `minimum_should_match` 
  * [Highlight the search terms in the response of a query](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-highlighting.html)
+   * `highlight`
  * [Sort the results of a query by a given set of requirements](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-sort.html)
+   * `sort` with `order`, `mode`, `missing`, `unmapped_type`, `_script`, `_geo_distance{order,unit,mode,distance_type}`, `nested{path,filter}`
  * [Implement pagination of the results of a search query](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-from-size.html)
+   * `from` + `size`
  * [Use the scroll API to retrieve large numbers of results](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-scroll.html)
+   * `POST index/_search?scroll=1m` with `query`, `slice`
+   * `POST _search/scroll` with `scroll` and `scroll_id`
+   * `DELETE _search/scroll/scroll_id`, `DELETE _search/scroll/_all`
  * [Apply fuzzy matching to a query](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query.html#query-dsl-match-query-fuzziness)
  * [Define and use a search template](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html)
  * [Write and execute a query that searches across multiple clusters](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-cross-cluster-search.html#_using_cross_cluster_search)
+   * `GET/POST remote:index,index/_search`
 
 # Aggregations
  * Write and execute [metric](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics.html) and [bucket](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket.html) aggregations
