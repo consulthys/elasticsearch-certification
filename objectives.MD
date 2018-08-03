@@ -1,6 +1,19 @@
 # Installation and Configuration
  * [Deploy and start an Elasticsearch cluster that satisfies a given set of requirements](https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html)
+   * `cluster.name`
+   * `node.name`, `node.attr.xyz`
+   * `path.data`, `path.logs`, `path.repo`
+   * `network.host`
+   * `discovery.zen.ping.unicast.hosts`, `discovery.zen.minimum_master_nodes`
+   * `bootstrap.memory_lock`
+   * `jvm.options`: heap size (`-Xmx -Xms`), heap dump path (`-XX:HeapDumpPath`), GC logging, fatal error logging (`-XX:ErrorFile`) 
+   * File handles in `/etc/security/limits.conf` (`elasticsearch  -  nofile  65536`)
+   * Disable swap files in `/etc/fstab` (comment `swap`)
+   * Disable swapping in `/etc/security/limits.conf`
+   * Increase available threads in `/etc/security/limits.conf` (`nproc=4096`)
+   * Boost virtual memory in `/etc/sysctl.conf` (`vm.max_map_count=262144`)
  * [Configure the nodes of a cluster to satisfy a given set of requirements](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html)
+   * `node.master`, `node.data`, `node.ingest`, `node.ml
  * [Secure an Elasticsearch cluster using X-Pack Security](https://www.elastic.co/guide/en/elastic-stack-overview/current/xpack-security.html) +[here](https://www.elastic.co/guide/en/elasticsearch/reference/current/configuring-security.html)
    * select trial license
    * set `xpack.security.enabled: true` in `elasticsearch.yml`
