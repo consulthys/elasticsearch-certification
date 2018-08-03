@@ -34,6 +34,7 @@
    * `index.max_ngram_diff`, `index.max_shingle_diff`
    * `index.default_pipeline`
    * `index.blocks.read_only`, `index.blocks.read_only_allow_delete`
+   * `cluster.blocks.read_only`, `cluster.blocks.read_only_allow_delete`
    * [more settings...](https://github.com/elastic/elasticsearch/blob/master/server/src/main/java/org/elasticsearch/index/IndexSettings.java)
  * Perform [index](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html), [create](), [read](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-get.html), [update](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-update.html), and [delete](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-delete.html) operations on the documents of an index
  * [Define and use index aliases](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-aliases.html)
@@ -69,7 +70,7 @@
  * [Allocate the shards of an index to specific nodes based on a given set of requirements](https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-allocation.html)
    * `index.routing.allocation.include.xyz`, `index.routing.allocation.exclude.xyz`, `index.routing.allocation.require.xyz`
    * `cluster.routing.allocation.include.xyz`, `cluster.routing.allocation.exclude.xyz`, `cluster.routing.allocation.require.xyz`
-   * `_ip`, `_name`, `_host`, `_host_ip`, `_publish_ip`
+     * `_ip`, `_name`, `_host`, `_host_ip`, `_publish_ip`
    * `index.unassigned.node_left.delayed_timeout`
    * `index.priority`
    * `index.routing.allocation.total_shards_per_node` (index), `cluster.routing.allocation.total_shards_per_node` (global)
@@ -78,4 +79,10 @@
  * Diagnose shard issues and repair a cluster’s health
  * [Backup and restore a cluster and/or specific indices](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-snapshots.html)
  * [Configure a cluster for use with a hot/warm architecture](https://www.elastic.co/blog/hot-warm-architecture) + [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/shard-allocation-filtering.html)
+   * `node.attr.box_type` + `index.routing.allocation.require.box_type`
  * [Configure a cluster for cross cluster search](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-cross-cluster-search.html#_configuring_cross_cluster_search)
+   * `search.remote.xyz.seeds`
+   * `search.remote.connections_per_cluster`
+   * `search.remote.node.attr`
+   * `search.remote.connect`
+   * `search.remote.xyz.skip_unavailable`
