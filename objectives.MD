@@ -49,9 +49,11 @@
    * properties: `index`, `indices`, `alias`, `filter`, `routing`, `index_routing`, `search_routing`
  * [Define and use an index template for a given pattern that satisfies a given set of requirements](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-templates.html)
    * `PUT/GET/DELETE/HEAD _template/name`
-   * `index_patterns`, `aliases`, `settings`, `mappings`, `order`, `version
+   * `index_patterns`, `aliases`, `settings`, `mappings`, `order`, `version`
  * [Define and use a dynamic template that satisfies a given set of requirements](https://www.elastic.co/guide/en/elasticsearch/reference/current/dynamic-templates.html)
  * Use the [Reindex API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html) and [Update By Query API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-update-by-query.html) to reindex and/or update documents
+   * update by query: `POST index/_update_by_query` with `query`, `script`, `conflicts`, `routing`, `scroll_size`, `pipeline`
+   * reindex: `POST _reindex` with `size`, `source{index,type,query,sort,size,remote}`, `dest{index,op_type,version_type,routing,pipeline}`, `conflicts`, `script`, `reindex.remote.whitelist`
  * [Define and use an ingest pipeline that satisfies a given set of requirements, including the use of Painless to modify documents](https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html)
 
 # Queries
