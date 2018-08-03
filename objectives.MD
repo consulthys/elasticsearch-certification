@@ -13,7 +13,7 @@
    * Increase available threads in `/etc/security/limits.conf` (`nproc=4096`)
    * Boost virtual memory in `/etc/sysctl.conf` (`vm.max_map_count=262144`)
  * [Configure the nodes of a cluster to satisfy a given set of requirements](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html)
-   * `node.master`, `node.data`, `node.ingest`, `node.ml
+   * `node.master`, `node.data`, `node.ingest`, `node.ml`
  * [Secure an Elasticsearch cluster using X-Pack Security](https://www.elastic.co/guide/en/elastic-stack-overview/current/xpack-security.html) +[here](https://www.elastic.co/guide/en/elasticsearch/reference/current/configuring-security.html)
    * select trial license
    * set `xpack.security.enabled: true` in `elasticsearch.yml`
@@ -28,6 +28,13 @@
 
 # Indexing Data
  * [Define an index that satisfies a given set of requirements](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-create-index.html)
+   * `index.number_of_shards`, `index.number_of_replicas`, `index.refresh_interval`
+   * `index.max_result_window`, `index.max_inner_result_window`
+   * `index.max_script_fields`, `index.max_terms_count`
+   * `index.max_ngram_diff`, `index.max_shingle_diff`
+   * `index.default_pipeline`
+   * `index.blocks.read_only`, `index.blocks.read_only_allow_delete`
+   * [more settings...](https://github.com/elastic/elasticsearch/blob/master/server/src/main/java/org/elasticsearch/index/IndexSettings.java)
  * Perform [index](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html), [create](), [read](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-get.html), [update](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-update.html), and [delete](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-delete.html) operations on the documents of an index
  * [Define and use index aliases](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-aliases.html)
  * [Define and use an index template for a given pattern that satisfies a given set of requirements](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-templates.html)
@@ -60,7 +67,14 @@
 
 # Cluster Administration
  * [Allocate the shards of an index to specific nodes based on a given set of requirements](https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-allocation.html)
+   * `index.routing.allocation.include.xyz`, `index.routing.allocation.exclude.xyz`, `index.routing.allocation.require.xyz`
+   * `cluster.routing.allocation.include.xyz`, `cluster.routing.allocation.exclude.xyz`, `cluster.routing.allocation.require.xyz`
+   * `_ip`, `_name`, `_host`, `_host_ip`, `_publish_ip`
+   * `index.unassigned.node_left.delayed_timeout`
+   * `index.priority`
+   * `index.routing.allocation.total_shards_per_node` (index), `cluster.routing.allocation.total_shards_per_node` (global)
  * Configure [shard allocation awareness](https://www.elastic.co/guide/en/elasticsearch/reference/current/allocation-awareness.html) and [forced awareness](https://www.elastic.co/guide/en/elasticsearch/reference/current/allocation-awareness.html#forced-awareness) for an index
+   * `cluster.routing.allocation.awareness.attributes`, `cluster.routing.allocation.awareness.force.xyz.values`
  * Diagnose shard issues and repair a cluster’s health
  * [Backup and restore a cluster and/or specific indices](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-snapshots.html)
  * [Configure a cluster for use with a hot/warm architecture](https://www.elastic.co/blog/hot-warm-architecture) + [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/shard-allocation-filtering.html)
