@@ -8,7 +8,7 @@
    * `bootstrap.memory_lock`
    * `jvm.options`: heap size (`-Xmx -Xms`), heap dump path (`-XX:HeapDumpPath`), GC logging, fatal error logging (`-XX:ErrorFile`) 
    * File handles in `/etc/security/limits.conf` (`elasticsearch  -  nofile  65536`)
-   * Disable swap files in `/etc/fstab` (comment `swap`)
+   * Disable swap files in `/etc/fstab` (comment `swap`) / `vm.swappiness=1` / in `/etc/security/limits.conf` (`memlock=unlimited`)
    * Disable swapping in `/etc/security/limits.conf`
    * Increase available threads in `/etc/security/limits.conf` (`nproc=4096`)
    * Increase max file size in `/etc/security/limits.conf` (`fsize=unlimited`)
