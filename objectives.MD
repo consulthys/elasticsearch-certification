@@ -55,7 +55,12 @@
    * update by query: `POST index/_update_by_query` with `query`, `script`, `conflicts`, `routing`, `scroll_size`, `pipeline`
    * reindex: `POST _reindex` with `size`, `source{index,type,query,sort,size,remote}`, `dest{index,op_type,version_type,routing,pipeline}`, `conflicts`, `script`, `reindex.remote.whitelist`
  * [Define and use an ingest pipeline that satisfies a given set of requirements, including the use of Painless to modify documents](https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html)
-
+   * `PUT/GET/DELETE _ingest/pipeline/id`
+   * `POST _ingest/pipeline/_simulate` with `pipeline` and `docs` / `POST _ingest/pipeline/id/_simulate` with `docs`
+   * `description`, `version`, `processors`
+   * variables: `_source`, `_index`, `_type`, `_id`, `_routing`, `_ingest.timestamp`
+   * errors: `on_failure` per processor or global, `_ingest.on_failure_message`, `_ingest.on_failure_processor_type`, and `_ingest.on_failure_processor_tag`
+   * [processors](https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest-processors.html): `append`, `convert`, `date`, ...
 # Queries
  * Write and execute a search query for [terms](https://www.elastic.co/guide/en/elasticsearch/reference/current/term-level-queries.html) and/or [phrases](https://www.elastic.co/guide/en/elasticsearch/reference/current/full-text-queries.html) in one or more fields of an index
  * [Write and execute a search query that is a Boolean combination of multiple queries and filters](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-bool-query.html)
