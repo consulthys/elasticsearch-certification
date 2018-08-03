@@ -11,6 +11,7 @@
    * Disable swap files in `/etc/fstab` (comment `swap`)
    * Disable swapping in `/etc/security/limits.conf`
    * Increase available threads in `/etc/security/limits.conf` (`nproc=4096`)
+   * Increase max file size in `/etc/security/limits.conf` (`fsize=unlimited`)
    * Boost virtual memory in `/etc/sysctl.conf` (`vm.max_map_count=262144`)
  * [Configure the nodes of a cluster to satisfy a given set of requirements](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html)
    * `node.master`, `node.data`, `node.ingest`, `node.ml`
