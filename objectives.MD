@@ -124,9 +124,8 @@
  * [Backup and restore a cluster and/or specific indices](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-snapshots.html)
    * repo: `PUT/GET/DELETE _snapshot/reponame`, `GET _snapshot/_all`, `POST _snapshot/reponame/_verify`
    * snapshot: `PUT/GET/DELETE _snapshot/reponame/snapshot_name` with `wait_for_completion`, `POST _snapshot/reponame/snapshot_name/_restore`, `GET _snapshot/_status`
-   * in case of `fs` repository, set `path.repo`
    * repo types: 
-     * `fs{location,compress,chunk_size,readonly,max_restore_bytes_per_sec,max_snapshot_bytes_per_sec}`
+     * `fs{location,compress,chunk_size,readonly,max_restore_bytes_per_sec,max_snapshot_bytes_per_sec}` + set `path.repo`
      * `url`
      * `s3`, `hdfs`, `azure`, `gcs`
  * [Configure a cluster for use with a hot/warm architecture](https://www.elastic.co/blog/hot-warm-architecture) + [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/shard-allocation-filtering.html)
