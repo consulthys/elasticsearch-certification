@@ -1,5 +1,5 @@
 # Disclaimer
-This document is not meant as a comprehensive resource for passing the Elastic Certification. Its main goal is to provide a quick cheat sheet of important settings per objective with links and pointers to the Elastic Engineer 1/2 course modules. In order to use this cheat sheet efficiently, one must already have a very good hands-on experience with Elasticsearch.
+This document is not meant as a comprehensive resource for passing the Elastic Certification. Its main goal is to provide a quick cheat sheet of the most important settings for each objective with links to the relevant documentation and pointers to the Elastic Engineer 1/2 course modules. In order to use this cheat sheet efficiently, one must already have a very good hands-on experience with Elasticsearch. The official documentation should only be considered as a safety net during the exam. Every objective should have been repeatedly exercised on many different projects before attempting the certification.
 
 # Installation and Configuration
  * [Deploy and start an Elasticsearch cluster that satisfies a given set of requirements](https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html)
