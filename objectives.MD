@@ -91,6 +91,10 @@
    * `type: custom`, 0+ `char_filter`, 1 `tokenizer`, 0+ `filter`, `position_increment_gap` (in case of arrays)
  * [Define and use multi-fields with different data types and/or analyzers](https://www.elastic.co/guide/en/elasticsearch/reference/current/multi-fields.html)
  * [Configure an index so that it properly maintains the relationships of nested arrays of objects](https://www.elastic.co/guide/en/elasticsearch/reference/current/nested.html)
+   * `nested` data type (instead of `object`)
+   * queries: `nested{path,query}` + `inner_hits` + `nested{path,filter}` sort
+   * aggs: `nested{path}`, `reverse_nested{path}`
+   * max nested fields per index = 50
  * [Configure an index that implements a parent/child relationship](https://www.elastic.co/guide/en/elasticsearch/reference/current/parent-join.html)
    * `join` data type, `relations` defines the relationships
    * max one `join` field per index
