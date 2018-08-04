@@ -87,6 +87,12 @@
 
 # Mappings and Text Analysis
  * [Define a mapping](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-put-mapping.html) that satisfies a [given set of requirements](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html)
+   * `PUT/GET index/_mapping/_doc`, `GET index/_mapping/_doc/field/name`
+   * only possible updates:
+     * add multi-fields (=> needs reindex)
+     * add new properties to `object` type
+     * add `ignore_above`
+     * set `fielddata: true` (=> no reindex)
  * [Define and use a custom analyzer that satisfies a given set of requirements](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-custom-analyzer.html)
    * `type: custom`, 0+ `char_filter`, 1 `tokenizer`, 0+ `filter`, `position_increment_gap` (in case of arrays)
  * [Define and use multi-fields with different data types and/or analyzers](https://www.elastic.co/guide/en/elasticsearch/reference/current/multi-fields.html)
