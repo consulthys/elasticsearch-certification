@@ -88,10 +88,18 @@
 # Mappings and Text Analysis
  * [Define a mapping](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-put-mapping.html) that satisfies a [given set of requirements](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html)
  * [Define and use a custom analyzer that satisfies a given set of requirements](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-custom-analyzer.html)
+   * `type: custom`, 0+ `char_filter`, 1 `tokenizer`, 0+ `filter`, `position_increment_gap` (in case of arrays)
  * [Define and use multi-fields with different data types and/or analyzers](https://www.elastic.co/guide/en/elasticsearch/reference/current/multi-fields.html)
  * [Configure an index so that it properly maintains the relationships of nested arrays of objects](https://www.elastic.co/guide/en/elasticsearch/reference/current/nested.html)
  * [Configure an index that implements a parent/child relationship](https://www.elastic.co/guide/en/elasticsearch/reference/current/parent-join.html)
-
+   * `join` data type, `relations` defines the relationships
+   * max one `join` field per index
+   * parent and child docs must be in same shard (use `routing=parent-id` on GET/DELETE/UPDATE)
+   * when indexing parent, only parent relationship is needed
+   * when indexing child, child relationship + parent id  + routing id are needed
+   * a child can only have one parent
+   * queries: `has_child{type,query}`, `has_parent{parent_type,query}`, `parent_id{type,id}`
+   * aggs: `children{type}`
 # Cluster Administration
  * [Allocate the shards of an index to specific nodes based on a given set of requirements](https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-allocation.html)
    * `index.routing.allocation.include.xyz`, `index.routing.allocation.exclude.xyz`, `index.routing.allocation.require.xyz`
