@@ -12,7 +12,9 @@ Regarding the Elasticsearch Engineer 1/2 courses, a reference looking like `[EE1
    * `node.name`, `node.attr.xyz`
    * `path.data`, `path.logs`, `path.repo`
    * `network.host`
-   * `discovery.zen.ping.unicast.hosts`, `discovery.zen.minimum_master_nodes`
+   * `discovery.zen.ping.unicast.hosts`, `discovery.zen.minimum_
+   
+   _nodes`
    * `bootstrap.memory_lock`
    * `jvm.options`: heap size (`-Xmx -Xms`), heap dump path (`-XX:HeapDumpPath`), GC logging, fatal error logging (`-XX:ErrorFile`) 
    * File handles in `/etc/security/limits.conf` (`elasticsearch  -  nofile  65536`)
@@ -23,6 +25,8 @@ Regarding the Elasticsearch Engineer 1/2 courses, a reference looking like `[EE1
    * Boost virtual memory in `/etc/sysctl.conf` (`vm.max_map_count=262144`)
  * [Configure the nodes of a cluster to satisfy a given set of requirements](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html) `[EE2/4/170-177]`
    * `node.master`, `node.data`, `node.ingest`, `node.ml`
+   * Recommended to have 3 master-eligible nodes (ideally in three different AZs) and `discovery.zen.minimum_master_nodes: 2` (i.e. N/2+1)
+   * precedence: transient -> persistent -> command-line -> `elasticsearch.yml
  * [Secure an Elasticsearch cluster using X-Pack Security](https://www.elastic.co/guide/en/elastic-stack-overview/current/xpack-security.html) +[here](https://www.elastic.co/guide/en/elasticsearch/reference/current/configuring-security.html) `[EE1/9/425-439]`
    * select trial license
    * set `xpack.security.enabled: true` in `elasticsearch.yml`
@@ -44,7 +48,7 @@ Regarding the Elasticsearch Engineer 1/2 courses, a reference looking like `[EE1
    * `index.default_pipeline`
    * `index.blocks.read_only`, `index.blocks.read_only_allow_delete`
    * `cluster.blocks.read_only`, `cluster.blocks.read_only_allow_delete`
-   * [more settings...](https://github.com/elastic/elasticsearch/blob/master/server/src/main/java/org/elasticsearch/index/IndexSettings.java)
+   * [more settings](https://github.com/elastic/elasticsearch/blob/master/server/src/main/java/org/elasticsearch/index/IndexSettings.java) and [more settings](https://github.com/elastic/elasticsearch/blob/master/server/src/main/java/org/elasticsearch/cluster/metadata/IndexMetaData.java)
  * Perform [index](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html), [create](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html#operation-type), [read](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-get.html), [update](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-update.html), and [delete](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-delete.html) operations on the documents of an index
    * index: `PUT index/_doc/id`, `POST index/_doc` `[EE1/3/79-91]`
    * create: `PUT index/_doc/id?op_type=create`, `PUT index/_doc/id/_create` `[EE1/3/92]`
@@ -71,27 +75,44 @@ Regarding the Elasticsearch Engineer 1/2 courses, a reference looking like `[EE1
    * [processors](https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest-processors.html): `append`, `convert`, `date`, ...
 # Queries
  * Write and execute a search query for [terms](https://www.elastic.co/guide/en/elasticsearch/reference/current/term-level-queries.html) and/or [phrases](https://www.elastic.co/guide/en/elasticsearch/reference/current/full-text-queries.html) in one or more fields of an index  `[EE1/3/117-124]` `[EE1/3/130-134]` `[EE1/7/325-345]`
+   * `match`: `operator (and/or)`, `minimum_should_match` (increases precision)
+   * `match_phrase`: all terms in same order, can be expensive, `slop`
+   * `multi_match`: `best_fields`, `most_fields`, `cross_fields`, `phrase` (improves precision)
  * [Write and execute a search query that is a Boolean combination of multiple queries and filters](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-bool-query.html) `[EE1/3/141-149]`
-   * `bool` + `must/must_not/filter/should` with `minimum_should_match` 
+   * `bool` + `must/must_not/filter/should` with `minimum_should_match` (increases precision)
  * [Highlight the search terms in the response of a query](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-highlighting.html) `[EE1/7/361-364]`
    * `highlight`
+   * `require_field_match: false` to also highlight fields not present in the query
+   * `pre_tags`, `post_tags`
  * [Sort the results of a query by a given set of requirements](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-sort.html) `[EE1/7/347-352]`
    * `sort` with `order`, `mode`, `missing`, `unmapped_type`, `_script`, `_geo_distance{order,unit,mode,distance_type}`, `nested{path,filter}`
  * [Implement pagination of the results of a search query](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-from-size.html) `[EE1/7/354-359]`
    * `from` + `size`
+   * `search_after`
  * [Use the scroll API to retrieve large numbers of results](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-scroll.html) `[EE1/10/467-473]`
-   * `POST index/_search?scroll=1m` with `query`, `slice`
-   * `POST _search/scroll` with `scroll` and `scroll_id`
+   * `GET/POST index/_search?scroll=1m` with `query`, `slice`
+   * `POST _search/scroll` with `scroll` and `scroll_id` (= `_scroll_id` from previous call)
    * `DELETE _search/scroll/scroll_id`, `DELETE _search/scroll/_all`
  * [Apply fuzzy matching to a query](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query.html#query-dsl-match-query-fuzziness) `[EE1/7/334-339]`
+   * `fuzziness`(0, 1, 2, ..., AUTO)
+   * => edit distance for terms
+   * => slop for phrases
  * [Define and use a search template](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html) `[EE2/3/131-138]`
  * [Write and execute a query that searches across multiple clusters](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-cross-cluster-search.html#_using_cross_cluster_search) `[EE2/9/448-456]`
    * `GET/POST remote:index,index/_search`
 
 # Aggregations
  * Write and execute [metric](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics.html) and [bucket](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket.html) aggregations `[EE2/3/140-154]`  `[EE1/8/372-411]`
-   * metric: `avg`, `sum`, `min`, `max`, `stats`, `top_hits`, `value_count`, `cardinality`, ...
+   * metric: 
+     * single-value: `avg`, `sum`, `min`, `max`, `cardinality` (`precision_threshold` max 40K), `value_count`, ...
+     * multi-value: `stats`, `top_hits`, `percentiles`, `percentile_ranks`, ...
    * bucket: `histogram`, `date_histogram`, `range`, `date_range`, `terms`, ...
+   * `terms`:
+     * `doc_count_error_upper_bound`: maximum number of missing documents that could potentially have appeared in a bucket
+     * `sum_other_doc_count`: number of documents that do not appear in any of the buckets
+     * increase `shard_size` (default `=(1.5 * size) + 10`) to increase accuracy (i.e. decrease `doc_count_error_upper_bound`)
+     * set `show_term_doc_count_error: true` to show `doc_count_error_upper_bound` per bucket
+   * `significant_terms`: find the "uncommonly common"
  * [Write and execute aggregations that contain sub-aggregations](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations.html#_structuring_aggregations)
  * [Write and execute pipeline aggregations](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-pipeline.html) `[EE2/3/156-162]`
    * `avg_bucket`, `sum_bucket`, `min_bucket`, `max_bucket`, `bucket_script`, ...
@@ -132,6 +153,11 @@ Regarding the Elasticsearch Engineer 1/2 courses, a reference looking like `[EE1
  * Configure [shard allocation awareness](https://www.elastic.co/guide/en/elasticsearch/reference/current/allocation-awareness.html) and [forced awareness](https://www.elastic.co/guide/en/elasticsearch/reference/current/allocation-awareness.html#forced-awareness) for an index `[EE2/4/192-200]`
    * `cluster.routing.allocation.awareness.attributes`, `cluster.routing.allocation.awareness.force.xyz.values`
  * Diagnose shard issues and repair a cluster’s health `[EE2/8/358-391]` `[EE2/9/431-446]` `[EE1/6/275-317]`
+   * check index-, node-, cluster-level
+   * red: at least one primary shard is missing
+   * yellow: at least one replica shard is missing
+   * green: all shards are properly allocated
+   * `GET _cluster/health`, `GET _cluster/health?level=indices`, `GET _cluster/health/index`, `GET _cluster/health?level=shard`, `GET _cluster/allocation/explain`
  * [Backup and restore a cluster and/or specific indices](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-snapshots.html) `[EE1/10/480-494]`
    * repo: `PUT/GET/DELETE _snapshot/reponame`, `GET _snapshot/_all`, `POST _snapshot/reponame/_verify`
    * snapshot: `PUT/GET/DELETE _snapshot/reponame/snapshot_name` with `wait_for_completion`, `POST _snapshot/reponame/snapshot_name/_restore`, `GET _snapshot/_status`
