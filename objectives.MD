@@ -90,8 +90,11 @@ Regarding the Elasticsearch Engineer 1/2 courses, a reference looking like `[EE1
 
 # Aggregations
  * Write and execute [metric](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics.html) and [bucket](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket.html) aggregations `[EE2/3/140-154]`  `[EE1/8/372-411]`
+   * metric: `avg`, `sum`, `min`, `max`, `stats`, `top_hits`, `value_count`, `cardinality`, ...
+   * bucket: `histogram`, `date_histogram`, `range`, `date_range`, `terms`, ...
  * [Write and execute aggregations that contain sub-aggregations](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations.html#_structuring_aggregations)
  * [Write and execute pipeline aggregations](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-pipeline.html) `[EE2/3/156-162]`
+   * `avg_bucket`, `sum_bucket`, `min_bucket`, `max_bucket`, `bucket_script`, ...
 
 # Mappings and Text Analysis
  * [Define a mapping](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-put-mapping.html) that satisfies a [given set of requirements](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html) `[EE1/4/174-182]` `[EE2/1/11-42+50-53]` `[EE2/2/78-82]`
