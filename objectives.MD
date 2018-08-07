@@ -75,7 +75,7 @@ Regarding the Elasticsearch Engineer 1/2 courses, a reference looking like `[EE1
  * Write and execute a search query for [terms](https://www.elastic.co/guide/en/elasticsearch/reference/current/term-level-queries.html) and/or [phrases](https://www.elastic.co/guide/en/elasticsearch/reference/current/full-text-queries.html) in one or more fields of an index  `[EE1/3/117-124]` `[EE1/3/130-134]` `[EE1/7/325-345]`
    * `match`: `operator (and/or)`, `minimum_should_match` (increases precision)
    * `match_phrase`: all terms in same order, can be expensive, `slop`
-   * `multi_match`: `best_fields`, `most_fields`, `cross_fields`, `phrase` (improves precision)
+   * `multi_match`: `best_fields` (field-centric), `most_fields` (field-centric), `cross_fields` (term-centric), `phrase` (improves precision), `phrase_prefix`
  * [Write and execute a search query that is a Boolean combination of multiple queries and filters](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-bool-query.html) `[EE1/3/141-149]`
    * `bool` + `must/must_not/filter/should` with `minimum_should_match` (increases precision)
  * [Highlight the search terms in the response of a query](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-highlighting.html) `[EE1/7/361-364]`
