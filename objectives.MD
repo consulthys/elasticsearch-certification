@@ -74,6 +74,9 @@ Regarding the Elasticsearch Engineer 1/2 courses, a reference looking like `[EE1
    * variables: `_source`, `_index`, `_type`, `_id`, `_routing`, `_ingest.timestamp`
    * errors: `on_failure` per processor or global, `_ingest.on_failure_message`, `_ingest.on_failure_processor_type`, and `_ingest.on_failure_processor_tag`
    * [processors](https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest-processors.html): `append`, `convert`, `date`, ...
+   * scripting:
+     * cache size configurable with `script.cache.max_size` or `script.cache.expire`
+     * change compilation rate with `script.max_compilations_rate` (default 75/5m)
 # Queries
  * Write and execute a search query for [terms](https://www.elastic.co/guide/en/elasticsearch/reference/current/term-level-queries.html) and/or [phrases](https://www.elastic.co/guide/en/elasticsearch/reference/current/full-text-queries.html) in one or more fields of an index  `[EE1/3/117-124]` `[EE1/3/130-134]` `[EE1/7/325-345]`
    * `match`: `operator (and/or)`, `minimum_should_match` (increases precision)
