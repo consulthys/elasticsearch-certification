@@ -160,12 +160,17 @@ Regarding the Elasticsearch Engineer 1/2 courses, a reference looking like `[EE1
    * `index.routing.allocation.total_shards_per_node` (index), `cluster.routing.allocation.total_shards_per_node` (global)
  * Configure [shard allocation awareness](https://www.elastic.co/guide/en/elasticsearch/reference/current/allocation-awareness.html) and [forced awareness](https://www.elastic.co/guide/en/elasticsearch/reference/current/allocation-awareness.html#forced-awareness) for an index `[EE2/4/192-200]`
    * `cluster.routing.allocation.awareness.attributes`, `cluster.routing.allocation.awareness.force.xyz.values`
- * Diagnose shard issues and repair a cluster’s health `[EE2/8/358-391]` `[EE2/9/431-446]` `[EE1/6/275-317]`
+ * Diagnose shard issues and repair a [cluster’s health](https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster-health.html) `[EE2/8/358-391]` `[EE2/9/431-446]` `[EE1/6/275-317]`
    * check index-, node-, cluster-level
    * red: at least one primary shard is missing
    * yellow: at least one replica shard is missing
    * green: all shards are properly allocated
    * `GET _cluster/health`, `GET _cluster/health?level=indices`, `GET _cluster/health/index`, `GET _cluster/health?level=shard`, `GET _cluster/allocation/explain`
+   * `GET _nodes/stats`, `GET _nodes/nodeid/stats`, `GET _nodes/[indices|fs|jvm|...]/stats`, `GET _nodes/thread_pool`, `GET _nodes/stats/thread_pool`
+   * [tasks](https://www.elastic.co/guide/en/elasticsearch/reference/current/tasks.html): `GET _cluster/pending_tasks`, `GET _tasks`, `GET _tasks?actions=*search&detailed`
+   * [cat](https://www.elastic.co/guide/en/elasticsearch/reference/current/cat.html): `nodes`, `indices`, `thread_pool`, ...
+   * profiling: add `profile: true` in the query
+   * check [slow logs](https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-slowlog.html) (query + index)
  * [Backup and restore a cluster and/or specific indices](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-snapshots.html) `[EE1/10/480-494]`
    * repo: `PUT/GET/DELETE _snapshot/reponame`, `GET _snapshot/_all`, `POST _snapshot/reponame/_verify`
    * snapshot: `PUT/GET/DELETE _snapshot/reponame/snapshot_name` with `wait_for_completion`, `POST _snapshot/reponame/snapshot_name/_restore`, `GET _snapshot/_status`
