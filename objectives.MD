@@ -61,6 +61,9 @@ Regarding the Elasticsearch Engineer 1/2 courses, a reference looking like `[EE1
    * `PUT/GET/DELETE/HEAD _template/name`
    * `index_patterns`, `aliases`, `settings`, `mappings`, `order`, `version`
  * [Define and use a dynamic template that satisfies a given set of requirements](https://www.elastic.co/guide/en/elasticsearch/reference/current/dynamic-templates.html) `[EE2/1/44-48]`
+   * match data type: `match_mapping_type`
+   * match name: `match`, `unmatch`, `match_pattern`
+   * match field path: `path_match`, `path_unmatch`
  * Use the [Reindex API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html) and [Update By Query API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-update-by-query.html) to reindex and/or update documents `[EE2/2/84-91]` `[EE2/2/93-97]`
    * update by query: `POST index/_update_by_query` with `query`, `script`, `conflicts`, `routing`, `scroll_size`, `pipeline`
    * reindex: `POST _reindex` with `size`, `source{index,type,query,sort,size,remote}`, `dest{index,op_type,version_type,routing,pipeline}`, `conflicts`, `script`, `reindex.remote.whitelist`
@@ -123,6 +126,8 @@ Regarding the Elasticsearch Engineer 1/2 courses, a reference looking like `[EE1
      * add new properties to `object` type
      * add `ignore_above`
      * set `fielddata: true` (=> no reindex)
+   * parameters: `analyzer`, `index`, `enabled`, `stored`, `copy_to`, `null_value`, `coerce` 
+   * `dynamic` => `true`, `false`, `strict`
  * [Define and use a custom analyzer that satisfies a given set of requirements](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-custom-analyzer.html) `[EE1/4/165-172]` `[EE1/4/188-215]`
    * `type: custom`, 0+ `char_filter`, 1 `tokenizer`, 0+ `filter`, `position_increment_gap` (in case of arrays)
  * [Define and use multi-fields with different data types and/or analyzers](https://www.elastic.co/guide/en/elasticsearch/reference/current/multi-fields.html) `[EE2/2/93-97]` `[EE1/4/184-186]`
