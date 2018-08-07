@@ -12,9 +12,7 @@ Regarding the Elasticsearch Engineer 1/2 courses, a reference looking like `[EE1
    * `node.name`, `node.attr.xyz`
    * `path.data`, `path.logs`, `path.repo`
    * `network.host`
-   * `discovery.zen.ping.unicast.hosts`, `discovery.zen.minimum_
-   
-   _nodes`
+   * `discovery.zen.ping.unicast.hosts`, `discovery.zen.minimum_master_nodes`
    * `bootstrap.memory_lock`
    * `jvm.options`: heap size (`-Xmx -Xms`), heap dump path (`-XX:HeapDumpPath`), GC logging, fatal error logging (`-XX:ErrorFile`) 
    * File handles in `/etc/security/limits.conf` (`elasticsearch  -  nofile  65536`)
