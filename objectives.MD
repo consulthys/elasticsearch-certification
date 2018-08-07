@@ -102,6 +102,8 @@ Regarding the Elasticsearch Engineer 1/2 courses, a reference looking like `[EE1
    * => edit distance for terms
    * => slop for phrases
  * [Define and use a search template](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html) `[EE2/3/131-138]`
+   * `POST _scripts/my_search_template` (lang: `mustache`)
+   * `GET index/_search/template` with `id` and `params`
  * [Write and execute a query that searches across multiple clusters](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-cross-cluster-search.html#_using_cross_cluster_search) `[EE2/9/448-456]`
    * `GET/POST remote:index,index/_search`
 
