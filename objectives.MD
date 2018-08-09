@@ -1,7 +1,9 @@
 # Disclaimer
-This document is not meant as a comprehensive resource for passing the [Elastic Certification](https://www.elastic.co/training/certification). Its main goal is to provide a quick cheat sheet of the most important settings for each [exam objective](https://training.elastic.co/exam/elastic-certified-engineer#objectives) with links to the [relevant documentation](https://www.elastic.co/guide/index.html) and pointers to the [Elasticsearch Engineer 1](https://elastic.co/training/elasticsearch-engineer-1)/[2](https://elastic.co/training/elasticsearch-engineer-2) course modules. This cheat sheet only makes sense for people who already have a very good hands-on experience with Elasticsearch. The ability to browse the official documentation during the exam should only be considered as a safety net, by no means it is sufficient to pass the exam. Every objective should have been repeatedly exercised over and over on many different projects before attempting to take the certification exam.
+This document is not meant as a comprehensive and exhaustive resource for passing the [Elastic Certification](https://www.elastic.co/training/certification). Its main goal is to provide a quick "cheat sheet" of the most important settings and information for each [exam objective](https://training.elastic.co/exam/elastic-certified-engineer#objectives) with links to the [relevant official documentation](https://www.elastic.co/guide/index.html) and pointers to the [Elasticsearch Engineer 1](https://elastic.co/training/elasticsearch-engineer-1)/[2](https://elastic.co/training/elasticsearch-engineer-2) course modules. 
 
-Regarding the Elasticsearch Engineer 1/2 courses, a reference looking like `[EE1/2/52-77]` means:
+This cheat sheet only makes sense for people who already have a very good hands-on experience with Elasticsearch. The ability to browse the official documentation during the exam should only be considered as a safety net, by no means it is sufficient to pass the exam. Every objective should have been repeatedly exercised on many different projects and use cases before attempting to take the certification exam.
+
+Note that references of the form `[EE1/2/52-77]` point to the related slides in the Elasticsearch Engineer 1/2 courses:
   * `EE1`: Elasticsearch Engineer 1
   * `2`: Module 2
   * `52-77`: Slides 52 to 77
