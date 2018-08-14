@@ -188,3 +188,11 @@ Note that references of the form `[EE1/2/52-77]` point to the related slides in 
    * `search.remote.node.attr`
    * `search.remote.connect`
    * `search.remote.xyz.skip_unavailable`
+
+# Resources
+
+ * [Docs: Elastic Stack and Product Documentation](https://www.elastic.co/guide/index.html)
+ * [Course: Elasticsearch Engineer I](https://elastic.co/training/elasticsearch-engineer-1)
+ * [Course: Elasticsearch Engineer II](https://elastic.co/training/elasticsearch-engineer-2)
+ * [Blog: Elastic Certification: The Next Step in Your Elasticsearch Training Journey](https://www.elastic.co/blog/elastic-certification-the-next-step-in-your-elasticsearch-training-journey)
+ * [Webinar: Preparing for the Elastic Certified Engineer Exam](https://www.elastic.co/webinars/preparing-for-the-elastic-certified-engineer-exam)
